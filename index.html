@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escada Paris Inox 316 - Segurança e Acessibilidade para Piscinas | Cascatas & Cia</title>
+    <title>Escada Paris - Segurança e Acessibilidade para Piscinas | Cascatas & Cia</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Escada Paris em Inox 316 para piscinas. Ideal para idosos, obesos e fisioterapia. Capacidade 450kg, garantia 1 ano. Solicite seu orçamento na Cascatas & Cia.">
@@ -59,6 +59,10 @@
     }
     </script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
         
@@ -66,6 +70,41 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .white {
+            color: white;
+        } 
+
+        .blue {
+            color: #01265A;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #scroll-container {
+            height: 100%;
+            overflow: auto;
         }
 
         body {
@@ -79,6 +118,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 0;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 95%;
+            }
         }
 
         .container-footer {
@@ -150,27 +195,28 @@
 
         /* Hero Section */
         .hero {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
 
         .hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url('Background.webp');
-        background-size: cover;
-        background-position: top;
-        filter: blur(4px);
-        z-index: 0;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('img/Background.webp');
+            background-size: cover;
+            background-position: top;
+            filter: blur(4px);
+            z-index: 0;
         }
 
         .hero > * {
-        position: relative;
-        z-index: 1;
+            position: relative;
+            z-index: 1;
+            height: 80vh;
         }
 
         .hero-content {
@@ -179,10 +225,18 @@
             align-items: center;
             justify-content: center;
             width: 100%;
+            height: 100%;
         }
 
         .hero-text {
             width: 50%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text {
+                width: 80%;
+            }
         }
 
         .hero-text h1 {
@@ -198,24 +252,9 @@
             line-height: 1.6;
         }
 
-        .cta-primary {
-            background: #01265A;
-            font-size: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            padding: 20px 0px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .cta-primary svg{
-            fill: white;
-            width: 40px;
+        .wpp-first{
+            width: 25px;
+            height: 25px;
         }
 
         .cta-primary:hover {
@@ -224,129 +263,37 @@
             background: white;
         }
 
-        /* Quote Form */
-        .quote-form {
-            width: 50%;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            color: #333;
-        }
-
-        .quote-form h3 {
-            color: #01265A;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .quote-form .form-subtitle {
-            color: #666;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-        }
-
-        .step {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            display: flex;
+        .btn-whatsapp {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #666;
-        }
-
-        .step.active {
-            background: #01265A;
+            gap: 10px;
+            background-color: #25D366;
             color: white;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
             font-weight: 600;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
+            padding: 14px 24px;
             border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #01265A;
-        }
-
-        .btn-form {
-            width: 100%;
-            display: block;
-            text-align: center;
             text-decoration: none;
-            background: #01265A;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-family: 'Montserrat';
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .btn-whatsapp i {
+            font-size: 1.2rem;
         }
 
-        .btn-form:hover {
-            background: #003d7a;
+        .btn-whatsapp:hover {
+            background-color: #1DA851;
+            transform: translateY(-2px);
         }
 
         /* Process Section */
-        .process {
+/*         .process {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #01265A;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 60px;
-            color: #01265A;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .white {
-            color: white;
-        }
-
-        /* POR QUE ESCOLHER ?*/
-
+            */
+/* 
         .process-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -375,7 +322,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('Teste.webp');
+            background-image: url('img/Teste.webp');
             background-size: cover;
             background-position: center;
             filter: blur(2px);
@@ -387,7 +334,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('Teste2.jpg');
+            background-image: url('img/Teste2.jpg');
             background-size: cover;
             background-position: center;
             filter: blur(2px);
@@ -399,7 +346,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('Teste3.jpg');
+            background-image: url('img/Teste3.jpg');
             background-size: cover;
             background-position: center;
             filter: blur(2px);
@@ -411,7 +358,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('Teste4.jpg');
+            background-image: url('img/Teste4.jpg');
             background-size: cover;
             background-position: center;
             filter: blur(2px);
@@ -470,184 +417,381 @@
             margin: 0;
             line-height: 1.5;
             font-size: 1rem;
+        } */
+
+        /* Feedback */
+
+        .feedback {
+            background-color: #01265A;
         }
 
-    /* Benefits Section */
+        .feedback-carousel-wrapper { 
+            position: relative; 
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-    .benefits-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(350px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-    }
+        .feedback-carousel {
+            display: flex;
+            transition: transform 0.4s ease;
+            gap: 20px;
+        }
+        .feedback-item {
+            flex: 0 0 35%;
+            max-width: 100%;
+            padding: 1.5rem;
+            box-sizing: border-box;
+            border: 1px solid black;
+            background-color: white;
+            border-radius: 10px;
+        }
+        .feedback-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .feedback-avatar { flex-shrink: 0; margin-right: 1rem; }
+        .feedback-name {
+            font-weight: bold;
+            color: #01265A;
+        }
+        .feedback-stars .material-icons {
+            font-size: 1rem;
+            color: #FFD700;
+            vertical-align: middle;
+        }
+        .feedback-text {
+            font-style: italic;
+            color: #333;
+            line-height: 1.5;
+        }
 
-    .benefit-item {
+        .carousel-controls {
+            margin: auto;
+        }
+        .carousel-btn {
+            background: white;
+            color: #01265A;
+            border: none;
+            padding: .5rem 1.5rem;
+            margin: 0 0.5rem;
+            font-size: 1.25rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .carousel-btn:disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: #01265A;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #7cb1fc;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: #f0f4f8;
+            transform: translateX(5px);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: #01265A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            color: #01265A;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .benefit-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-duvidas {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .benefits-grid .benefit-item {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .benefit-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .prop-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .prop-item .material-icons-outlined {
+            font-size: 20px;
+            color: #01265A;
+        }
+        .prop-item p {
+            margin: 0;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        /* Specifications */
+        :root {
+        --accent: #01265A;
+        --track:  #ddd;
+        --icon-bg: #01265A;
+        }
+
+        .timeline {
+        position: relative;
+        padding: 0;
+        }
+
+        .line-bg,
+        .line-progress {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        top: 0;
+        bottom: 0;
+        }
+        .line-bg {
+        background: var(--track);
+        z-index: 1;
+        }
+        .line-progress {
+        background: var(--accent);
+        height: 0;               /* inicia vazio */
+        transform-origin: top;
+        z-index: 2;
+        transition: height 0.2s ease-out;
+        }
+
+        .timeline ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+        .timeline li {
+        position: relative;
+        margin: 4rem 0;
         display: flex;
-        gap: 20px;
-        padding: 30px;
-        background: #f8f9fa;
-        border-radius: 15px;
-        border-left: 5px solid #01265A;
-        transition: all 0.3s ease;
-    }
-
-    .benefit-item:hover {
-        background: #f0f4f8;
-        transform: translateX(5px);
-    }
-
-    .benefit-icon {
-        width: 60px;
-        height: 60px;
-        background: #01265A;
+        align-items: flex-start;
+        justify-content: space-between;
+        }
+        .timeline .icon {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        background: var(--icon-bg);
+        width: 40px; height: 40px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
-        color: white;
-        flex-shrink: 0;
-    }
+        transition: background 0.3s;
+        }
+        .timeline .icon.active {
+        background: var(--accent);
+        }
 
-    .benefit-content h4 {
-        color: #01265A;
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-        font-weight: 600;
-    }
+        .timeline .content {
+        background: #fff;
+        padding: 1.5rem;
+        width: 45%;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .timeline .content.left { margin-right: auto; }
+        .timeline .content.right { margin-left: auto; }
 
-    .benefit-content p {
-        color: #666;
-        line-height: 1.6;
-    }
+        /* As setinhas triangulares */
+        .timeline .content::after {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        border: 8px solid transparent;
+        }
+        .timeline .content.left::after {
+        right: -16px;
+        border-left-color: #fff;
+        }
+        .timeline .content.right::after {
+        left: -16px;
+        border-right-color: #fff;
+        }
 
-    /* Specifications */
-    .specifications {
-        background: #01265A;
-        color: white;
-    }
+        /* Mobile */
 
-    .specs-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(200px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-    }
+        @media (max-width: 768px) {
+        .timeline li {
+            flex-direction: column;
+            margin: 2rem 0;
+        }
+        .timeline .content {
+            width: 45%;
+            margin-top: 2rem !important;
+        }
+        .timeline .content::after { display: none; }
+        }
 
-    .spec-item {
-        text-align: center;
-        padding: 30px 20px;
-        background: rgba(255,255,255,0.1);
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-    }
 
-    .spec-value {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #ffffff;
-        margin-bottom: 10px;
-    }
 
-    .spec-label {
-        font-size: 1.1rem;
-        opacity: 0.9;
-    }
+        /* Gallery */
+        .gallery {
+            background: white;
+        }
 
-    /* Gallery */
-    .gallery {
-        background: white;
-    }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
 
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(350px, 1fr));
-        gap: 30px;
-        margin-top: 60px;
-    }
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
 
-    .gallery-item {
-        border-radius: 15px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
 
-    .gallery-item:hover {
-        transform: scale(1.05);
-        cursor: pointer;
-    }
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
 
-    .gallery-item img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
+        .videos-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 50px;
+        }
+        .video-wrapper {
+            flex: 1 1 calc(50% - 16px);
+            max-width: calc(50% - 16px);
+            position: relative;
+            height: 320px;
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 320px;
+            border: 0;
+        }
 
-    /* CTA Section */
-    .final-cta {
-        background: linear-gradient(135deg, #01265A 0%, #003d7a 100%);
-        color: white;
-        text-align: center;
-    }
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #01265A 0%, #003d7a 100%);
+            color: white;
+            text-align: center;
+        }
 
-    .final-cta h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        font-weight: 700;
-    }
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
 
-    .final-cta p {
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        opacity: 0.9;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .cta-buttons {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-   
-    .cta-buttons svg {
-        fill: white;
-        width: 20px;
-    }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    
+        .cta-buttons svg {
+            fill: white;
+            width: 20px;
+        }
 
-    .btn-cta {
-        padding: 18px 40px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 1.1rem;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-    }
+        .btn-cta {
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .btn-primary {
-        background: white;
-        color: #01265A;
-    }
+        .btn-primary {
+            background: white;
+            color: #01265A;
+        }
 
-    .btn-primary:hover {
-        background: #f0f0f0;
-        transform: translateY(-2px);
-    }
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
 
-    .btn-secondary {
-        background: transparent;
-        color: white;
-        border: 2px solid white;
-    }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
 
-    .btn-secondary:hover {
-        background-color: #0f58be98;
-    }
+        .btn-secondary:hover {
+            background-color: #0f58be98;
+        }
 
         /* Footer */
         footer {
@@ -689,463 +833,984 @@
             color: #999;
         }
 
-        /* Responsive Design */
+        /* Ajuste no título pra dar um espaço */
+        .benefit-content h4 {
+            margin-bottom: 8px;
+            color: #01265A;
+        }
+
+        .carousel {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+        }
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 300px;
+            margin-right: 20px;
+        }
+        .carousel-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
         @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
+            .benefits-grid {
+                grid-template-columns: repeat(2, minmax(auto, 1fr));
+                gap: 10px;
+            }
+            .benefits-grid .benefit-item {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .specifications .benefit-item {
+                border-right: 5px solid #7cb1fc;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
 
-            .hero-text h1 {
-                font-size: 2.5rem;
+            .header-content > a.btn-whatsapp {
+                display: none;
             }
+        }
 
-            .quote-form {
-                padding: 30px 20px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
+        @media (max-width: 550px) {
             .nav-menu {
                 display: none;
             }
-
-            .header-content {
+            .feedback-header {
                 flex-direction: column;
+            }
+            .feedback-text {
+                text-align: center;
+            }
+            .feedback-name {
+                text-align: center;
+            }
+            .feedback-avatar {
+                margin: 0;
+            }
+            .videos-container {
+                display: block;
+            }
+            .video-wrapper {
+                max-width: unset;
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            .section-title {
+                line-height: 50px;
+            }
+            .benefits-grid {
+                grid-template-columns: repeat(1, minmax(auto, 1fr));
                 gap: 30px;
             }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .feedback-item {
+                flex: 0 0 70%;
             }
-
-            .btn-cta {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
+            .footer-content {
+                grid-template-columns: repeat(1, auto);
+                gap: 40px;
+                text-align: center;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
 
-            .hero {
-                padding: 60px 0;
-                min-height: auto;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .process, .benefits, .specifications, .gallery, .final-cta {
-                padding: 60px 0;
-            }
-
-            .quote-form {
-                padding: 25px 15px;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
     </style>
+
 </head>
 <body>
-    <header>
-        <div class="container container-footer">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="download.svg" alt="">
-                </div>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="#produto">Produto</a></li>
-                        <li><a href="#beneficios">Benefícios</a></li>
-                        <li><a href="#especificacoes">Especificações</a></li>
-                        <li><a href="#galeria">Galeria</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </nav>
-                <a href="tel:+551637610352" class="contact-header">
-                <svg fill="#ffffff" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53.942 53.942" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M53.364,40.908c-2.008-3.796-8.981-7.912-9.288-8.092c-0.896-0.51-1.831-0.78-2.706-0.78c-1.301,0-2.366,0.596-3.011,1.68 c-1.02,1.22-2.285,2.646-2.592,2.867c-2.376,1.612-4.236,1.429-6.294-0.629L17.987,24.467c-2.045-2.045-2.233-3.928-0.632-6.291 c0.224-0.309,1.65-1.575,2.87-2.596c0.778-0.463,1.312-1.151,1.546-1.995c0.311-1.123,0.082-2.444-0.652-3.731 c-0.173-0.296-4.291-7.27-8.085-9.277c-0.708-0.375-1.506-0.573-2.306-0.573c-1.318,0-2.558,0.514-3.49,1.445L4.7,3.986 c-4.014,4.013-5.467,8.562-4.321,13.52c0.956,4.132,3.742,8.529,8.282,13.068l14.705,14.705c5.746,5.746,11.224,8.66,16.282,8.66 c0,0,0,0,0.001,0c3.72,0,7.188-1.581,10.305-4.698l2.537-2.537C54.033,45.163,54.383,42.833,53.364,40.908z"></path> </g></svg>
-                (16) 3761-0352
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="produto">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text fade-in">
-                    <h1>Escada Paris Inox 316</h1>
-                    <p class="description">
-                    A revolução em segurança e acessibilidade para sua piscina.
-                    <br>Fabricada em Aço Inox AISI 316, oferece segurança máxima para idosos, pessoas em fisioterapia, obesos e condomínios. Capacidade de 450kg com garantia de 1 ano.</p>
-                </div>
-                    <div class="quote-form fade-in">
-                    <h3>Solicite seu orçamento</h3>
-                    <p class="form-subtitle">Preencha o formulário e receba uma proposta personalizada</p>
-                    <form id="quoteForm">
-                        <div class="form-group">
-                            <label for="nome">Nome completo</label>
-                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="telefone">WhatsApp</label>
-                            <input type="tel" id="telefone" name="telefone" placeholder="(16) 99999-9999" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="profundidade">Profundidade da piscina</label>
-                            <select id="profundidade" name="profundidade" required>
-                                <option value="">Selecione a profundidade</option>
-                                <option value="1.00m">1,00m</option>
-                                <option value="1.10m">1,10m</option>
-                                <option value="1.20m">1,20m</option>
-                                <option value="1.30m">1,30m</option>
-                                <option value="1.40m">1,40m</option>
-                                <option value="1.50m">1,50m</option>
-                                <option value="1.60m">1,60m</option>
-                                <option value="1.70m">1,70m</option>
-                                <option value="1.80m">1,80m</option>
-                                <option value="1.90m">1,90m</option>
-                                <option value="2.00m">2,00m</option>
-                            </select>
-                        </div>
-                        
-                        <a class="btn-form" href="https://api.whatsapp.com/send?phone=5516982227333">Solicitar Orçamento</a>
-                        <!-- <button type="submit" class="btn-form">Solicitar Orçamento</button> -->
-                    </form>
+     <div id="scroll-container">
+        <header>
+            <div class="container container-footer">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="img/download.svg" alt="">
+                    </div>
+                    <nav>
+                        <ul class="nav-menu">
+                            <li><a href="#produto">Produto</a></li>
+                            <li><a href="#beneficios">Benefícios</a></li>
+                            <li><a href="#especificacoes">Especificações</a></li>
+                            <li><a href="#galeria">Galeria</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </nav>
+                    <a href="https://api.whatsapp.com/send/?phone=5516982227333&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+Escada+Paris+Inox+316&type=phone_number&app_absent=0"class="btn-whatsapp" target="_blank" rel="noopener">
+                        <svg class="wpp-first" fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.271 13.21c.578.185 1.078.416 1.543.7l-.031-.018c.529.235.986.51 1.403.833l-.015-.011c.02.061.032.13.032.203 0 .011 0 .021-.001.032v-.001c-.015.429-.11.832-.271 1.199l.008-.021c-.231.463-.616.82-1.087 1.01l-.014.005c-.459.243-1.001.393-1.576.411h-.006c-1.1-.146-2.094-.484-2.988-.982l.043.022c-1.022-.468-1.895-1.083-2.636-1.829l-.001-.001c-.824-.857-1.579-1.795-2.248-2.794l-.047-.074c-.636-.829-1.041-1.866-1.1-2.995l-.001-.013v-.124c.032-.975.468-1.843 1.144-2.447l.003-.003c.207-.206.491-.335.805-.341h.001c.101.003.198.011.292.025l-.013-.002c.087.013.188.021.292.023h.003c.019-.002.04-.003.062-.003.13 0 .251.039.352.105l-.002-.001c.107.118.189.261.238.418l.002.008q.124.31.512 1.364c.135.314.267.701.373 1.099l.014.063c-.076.361-.268.668-.533.889l-.003.002q-.535.566-.535.72c.004.088.034.168.081.234l-.001-.001c.405.829.936 1.533 1.576 2.119l.005.005c.675.609 1.446 1.132 2.282 1.54l.059.026c.097.063.213.103.339.109h.002q.233 0 .838-.752t.804-.752zm-3.147 8.216h.022c1.357 0 2.647-.285 3.814-.799l-.061.024c2.356-.994 4.193-2.831 5.163-5.124l.024-.063c.49-1.113.775-2.411.775-3.775s-.285-2.662-.799-3.837l.024.062c-.994-2.356-2.831-4.193-5.124-5.163l-.063-.024c-1.113-.49-2.411-.775-3.775-.775s-2.662.285-3.837.799l.062-.024c-2.356.994-4.193 2.831-5.163 5.124l-.024.063c-.49 1.117-.775 2.419-.775 3.787 0 2.141.698 4.12 1.879 5.72l-.019-.026-1.225 3.613 3.752-1.194c1.49 1.01 3.327 1.612 5.305 1.612h.047zm0-21.426h.033c1.628 0 3.176.342 4.575.959l-.073-.029c2.825 1.197 5.028 3.4 6.196 6.149l.029.076c.588 1.337.93 2.896.93 4.535s-.342 3.198-.959 4.609l.029-.074c-1.197 2.825-3.4 5.028-6.149 6.196l-.076.029c-1.327.588-2.875.93-4.503.93-.011 0-.023 0-.034 0h.002c-.016 0-.034 0-.053 0-2.059 0-3.992-.541-5.664-1.488l.057.03-6.465 2.078 2.109-6.279c-1.051-1.714-1.674-3.789-1.674-6.01 0-1.646.342-3.212.959-4.631l-.029.075c1.197-2.825 3.4-5.028 6.149-6.196l.076-.029c1.327-.588 2.875-.93 4.503-.93h.033-.002z"></path></g></svg>
+                        Fale no WhatsApp
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Process Section -->
-    <section class="process" id="beneficios">
+        <!-- Hero Section -->
+        <section class="hero" id="produto">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text fade-in">
+                        <h1>Escada Paris Inox 316</h1>
+                        <p class="description">
+                        A revolução em segurança e acessibilidade para sua piscina.
+                        <br>Fabricada em Aço Inox AISI 316, oferece segurança máxima para idosos, pessoas em fisioterapia, obesos e condomínios. Capacidade de 450kg com garantia de 1 ano.</p>
+                        <a href="https://api.whatsapp.com/send/?phone=5516982227333&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+Escada+Paris+Inox+316&type=phone_number&app_absent=0"class="btn-whatsapp" target="_blank" rel="noopener">
+                            <svg class="wpp-first" fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.271 13.21c.578.185 1.078.416 1.543.7l-.031-.018c.529.235.986.51 1.403.833l-.015-.011c.02.061.032.13.032.203 0 .011 0 .021-.001.032v-.001c-.015.429-.11.832-.271 1.199l.008-.021c-.231.463-.616.82-1.087 1.01l-.014.005c-.459.243-1.001.393-1.576.411h-.006c-1.1-.146-2.094-.484-2.988-.982l.043.022c-1.022-.468-1.895-1.083-2.636-1.829l-.001-.001c-.824-.857-1.579-1.795-2.248-2.794l-.047-.074c-.636-.829-1.041-1.866-1.1-2.995l-.001-.013v-.124c.032-.975.468-1.843 1.144-2.447l.003-.003c.207-.206.491-.335.805-.341h.001c.101.003.198.011.292.025l-.013-.002c.087.013.188.021.292.023h.003c.019-.002.04-.003.062-.003.13 0 .251.039.352.105l-.002-.001c.107.118.189.261.238.418l.002.008q.124.31.512 1.364c.135.314.267.701.373 1.099l.014.063c-.076.361-.268.668-.533.889l-.003.002q-.535.566-.535.72c.004.088.034.168.081.234l-.001-.001c.405.829.936 1.533 1.576 2.119l.005.005c.675.609 1.446 1.132 2.282 1.54l.059.026c.097.063.213.103.339.109h.002q.233 0 .838-.752t.804-.752zm-3.147 8.216h.022c1.357 0 2.647-.285 3.814-.799l-.061.024c2.356-.994 4.193-2.831 5.163-5.124l.024-.063c.49-1.113.775-2.411.775-3.775s-.285-2.662-.799-3.837l.024.062c-.994-2.356-2.831-4.193-5.124-5.163l-.063-.024c-1.113-.49-2.411-.775-3.775-.775s-2.662.285-3.837.799l.062-.024c-2.356.994-4.193 2.831-5.163 5.124l-.024.063c-.49 1.117-.775 2.419-.775 3.787 0 2.141.698 4.12 1.879 5.72l-.019-.026-1.225 3.613 3.752-1.194c1.49 1.01 3.327 1.612 5.305 1.612h.047zm0-21.426h.033c1.628 0 3.176.342 4.575.959l-.073-.029c2.825 1.197 5.028 3.4 6.196 6.149l.029.076c.588 1.337.93 2.896.93 4.535s-.342 3.198-.959 4.609l.029-.074c-1.197 2.825-3.4 5.028-6.149 6.196l-.076.029c-1.327.588-2.875.93-4.503.93-.011 0-.023 0-.034 0h.002c-.016 0-.034 0-.053 0-2.059 0-3.992-.541-5.664-1.488l.057.03-6.465 2.078 2.109-6.279c-1.051-1.714-1.674-3.789-1.674-6.01 0-1.646.342-3.212.959-4.631l-.029.075c1.197-2.825 3.4-5.028 6.149-6.196l.076-.029c1.327-.588 2.875-.93 4.503-.93h.033-.002z"></path></g></svg>
+                            Fale no WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivos para escolher a Escada Paris -->
         <div class="container">
-            <h2 class="section-title">Por que escolher a Escada Paris?</h2>
-            <p class="section-subtitle">Descubra os diferenciais que fazem da Escada Paris a escolha ideal para sua piscina</p>
+        <h2 class="section-title blue">Motivos para escolher a Escada Paris</h2>
+        <p class="section-subtitle blue">Veja por que ela é a melhor opção para sua piscina</p>
 
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-card-header">
-                        <div class="process-icon">
+        <section class="timeline" id="timeline">
+            <div class="line-bg"></div>
+            <div class="line-progress" id="line-progress"></div>
+
+            <ul>
+            <!-- 1. Resistência à corrosão -->
+            <li class="highlight">
+                <div class="icon">
+                <!-- Escudo -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12
+                            5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                </svg>
+                </div>
+                <div class="content left">
+                <h3 class="blue">Resistência à corrosão</h3>
+                <p>Fabricada em Aço Inox AISI 316, oferece proteção total contra cloro e maresia, garantindo aparência e desempenho impecáveis por muitos anos.</p>
+                </div>
+            </li>
+
+            <!-- 2. Alta capacidade de carga -->
+            <li>
+                <div class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="10" width="20" height="4"/>
+                <circle cx="4" cy="12" r="4"/>
+                <circle cx="20" cy="12" r="4"/>
+                </svg>
+                </div>
+                <div class="content right">
+                <h3 class="blue">Suporta até 450 kg com total segurança</h3>
+                <p>Perfeita para idosos, pacientes de fisioterapia e uso coletivo em condomínios, com estabilidade certificada.</p>
+                </div>
+            </li>
+
+            <!-- 3. Material premium -->
+            <li>
+                <div class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="1">
+                <polygon points="
+                    12,2
+                    15.09,8.26
+                    22,9.27
+                    17,14.14
+                    18.18,21.02
+                    12,17.77
+                    5.82,21.02
+                    7,14.14
+                    2,9.27
+                    8.91,8.26
+                "/>
+                </svg>
+                </div>
+                <div class="content left">
+                <h3 class="blue">Material premium</h3>
+                <p>Mesma qualidade empregada em embarcações e indústrias marítimas, para máxima durabilidade e acabamento superior.</p>
+                </div>
+            </li>
+
+            <!-- 4. Degraus antiderrapantes -->
+            <li>
+                <div class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2">
+                <!-- Base do degrau (grande e robusto) -->
+                <rect x="2" y="10" width="20" height="8" rx="2"/>
+                <!-- Linhas diagonais que simbolizam a superfície antiderrapante -->
+                <line x1="4" y1="11" x2="11" y2="18"/>
+                <line x1="8" y1="11" x2="15" y2="18"/>
+                <line x1="12" y1="11" x2="19" y2="18"/>
+                </svg>
+                </div>
+                <div class="content right">
+                <h3 class="blue">Degraus antiderrapantes e amplos</h3>
+                <p>Escadas com degraus de 15 × 56 cm. Aderência superior a cada passo, reduzindo riscos de escorregões e garantindo conforto.</p>
+                </div>
+            </li>
+
+            <!-- 5. Instalação simples -->
+            <li>
+                <div class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.06-.94l2.03-1.58
+                    c.18-.14.23-.41.12-.61l-1.92-3.32c-.11-.19-.35-.26-.55-.19l-2.39.96
+                    a7.007 7.007 0 00-1.61-.94l-.36-2.65a.486.486 0 00-.49-.41h-4.26
+                    a.486.486 0 00-.49.41l-.36 2.65a7.007 7.007 0 00-1.69.94l-2.39-.96
+                    a.495.495 0 00-.55.19L2.81 8.91a.495.495 0 00.12.61l2.03 1.58
+                    c-.04.3-.06.61-.06.94s.02.64.06.94l-2.03 1.58a.495.495 0 00-.12.61
+                    l1.92 3.32c.11.19.35.26.55.19l2.39-.96c.52.4 1.09.72 1.69.94l.36 2.65
+                    c.05.24.25.41.49.41h4.26c.24 0 .45-.17.49-.41l.36-2.65c.51-.23 1.01-.54
+                    1.47-.94l2.39.96c.20.08.44 0 .55-.19l1.92-3.32a.495.495 0 00-.12-.61
+                    l-2.03-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5
+                    3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+                </svg>
+                </div>
+                <div class="content left">
+                <h3 class="blue">Instalação rápida e sem danos</h3>
+                <p>Montagem simples que preserva vinil, fibra ou alvenaria. Sem cortes, sem quebras e sem sujeira.</p>
+                </div>
+            </li>
+            </ul>
+        </section>
+
+        </div>
+
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <div class="container">
+                <h2 class="section-title white">Vantagens do Inox 316</h2>
+                <p class="section-subtitle white">Entenda por que o Inox 316 é superior</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M3 12h18l-3-3m0 6l3-3"/>
+                                <path d="M3 5h18"/>
+                                <path d="M3 19h18"/>
                             </svg>
                         </div>
-                        <h3>Inox 316 Superior</h3>
+                        <div class="benefit-content">
+                            <h4>Resistência à Maresia</h4>
+                            <p>Ideal para regiões litorâneas, onde a maresia acelera a corrosão de materiais convencionais. O Inox 316 mantém sua integridade por muito mais tempo.</p>
+                        </div>
                     </div>
-                    <div class="process-card-body">
-                        <p>Resistência excepcional à corrosão, ideal para regiões litorâneas e piscinas com salinizadores. Durabilidade incomparável que resiste ao tempo.</p>
-                    </div>
-                </div>
-                
-                <div class="process-card">
-                    <div class="process-card-header">
-                        <div class="process-icon weight">
-<svg fill="#ffffff" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M491.29,477.068L457.585,245.81c-0.758-5.204-5.585-8.803-10.794-8.047c-5.203,0.758-8.805,5.59-8.047,10.793 l33.705,231.258c0.49,3.352-0.462,6.611-2.677,9.173c-2.216,2.563-5.303,3.974-8.692,3.974H117.773c-5.257,0-9.52,4.262-9.52,9.52 c0,5.257,4.262,9.52,9.52,9.52H461.08c8.872,0,17.289-3.849,23.092-10.559C489.975,494.729,492.57,485.846,491.29,477.068z"></path> </g> </g> <g> <g> <path d="M451.41,203.439l-8.549-58.662c-2.172-14.894-15.158-26.126-30.21-26.126h-28.836C378.929,52.405,323.471,0,256,0 S133.071,52.405,128.185,118.65H99.349c-15.051,0-28.039,11.232-30.209,26.126L20.71,477.068 c-1.279,8.78,1.315,17.663,7.118,24.373C33.631,508.151,42.048,512,50.919,512h28.775c5.257,0,9.52-4.262,9.52-9.52 c0-5.257-4.262-9.52-9.52-9.52H50.919c-3.388,0-6.475-1.411-8.691-3.974c-2.216-2.563-3.168-5.82-2.68-9.173l48.43-332.291 c0.817-5.605,5.706-9.833,11.37-9.833h313.302c5.665,0,10.552,4.228,11.369,9.833l8.549,58.662 c0.759,5.204,5.59,8.811,10.794,8.047C448.566,213.474,452.168,208.641,451.41,203.439z M147.31,118.65 c4.842-55.731,51.725-99.61,108.69-99.61s103.846,43.879,108.688,99.61H147.31z"></path> </g> </g> <g> <g> <path d="M243.381,367.181l-6.148-21.518c-4.078-14.276-14.802-25.934-28.689-31.188l-3.126-1.183 c13.491-9.383,23.247-23.662,26.806-40.116l2.23-10.313c1.111-5.138-2.154-10.205-7.293-11.317 c-5.136-1.111-10.205,2.153-11.317,7.293l-2.23,10.313c-2.88,13.319-11.481,24.62-23.205,31.067v-39.368 c0-5.257-4.262-9.52-9.52-9.52c-5.257,0-9.52,4.262-9.52,9.52v108.946c0,5.257,4.262,9.52,9.52,9.52c5.257,0,9.52-4.262,9.52-9.52 V327.97l11.397,4.312c8.286,3.135,14.686,10.092,17.12,18.612l6.148,21.52c1.194,4.181,5.006,6.906,9.149,6.906 c0.866,0,1.747-0.119,2.62-0.369C241.897,377.506,244.825,372.237,243.381,367.181z"></path> </g> </g> <g> <g> <path d="M331.11,313.748h-28.371c-5.259,0-9.52,4.262-9.52,9.52c0,5.257,4.261,9.52,9.52,9.52h18.852v4.666 c0,12.585-10.238,22.823-22.823,22.823c-12.584,0-22.822-10.238-22.822-22.823v-44.259c0-12.584,10.238-22.823,22.823-22.823 c12.584,0,22.822,10.238,22.822,22.823c0,5.257,4.261,9.52,9.52,9.52c5.259,0,9.52-4.262,9.52-9.52 c0-23.083-18.78-41.863-41.863-41.863s-41.861,18.779-41.861,41.863v44.259c0,23.083,18.779,41.863,41.863,41.863 s41.861-18.779,41.861-41.863v-14.186C340.63,318.01,336.369,313.748,331.11,313.748z"></path> </g> </g> </g></svg>                        </div>
-                        <h3>Capacidade 450kg</h3>
-                    </div>
-                    <div class="process-card-body">
-                        <p>Estrutura robusta que suporta até 450kg, oferecendo segurança total para todos os usuários, incluindo pessoas obesas e uso intenso.</p>
-                    </div>
-                </div>
-                
-                <div class="process-card">
-                    <div class="process-card-header">
-                        <div class="process-icon">
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6"/>
+                                <path d="M21 12h-6m-6 0H3"/>
                             </svg>
                         </div>
-                        <h3>Instalação Fácil</h3>
+                        <div class="benefit-content">
+                            <h4>Resistência Química</h4>
+                            <p>Perfeito para piscinas com tratamento por salinizadores e produtos químicos agressivos. Não sofre deterioração com cloro e outros agentes.</p>
+                        </div>
                     </div>
-                    <div class="process-card-body">
-                        <p>Não requer furos no fundo da piscina. Compatível com piscinas de vinil, fibra e alvenaria. Instalação rápida e segura.</p>
-                    </div>
-                </div>
-                
-                <div class="process-card">
-                    <div class="process-card-header">
-                        <div class="process-icon">
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26"/>
                             </svg>
                         </div>
-                        <h3>Acessibilidade Total</h3>
+                        <div class="benefit-content">
+                            <h4>Durabilidade Superior</h4>
+                            <p>Investimento que se paga ao longo do tempo. Menor necessidade de manutenção e substituição, garantindo economia a longo prazo.</p>
+                        </div>
                     </div>
-                    <div class="process-card-body">
-                        <p>Degraus largos (15x56cm) ideais para idosos, fisioterapia e pessoas com mobilidade reduzida. Conforto e segurança garantidos.</p>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Segurança Médica</h4>
+                            <p>Material biocompatível, usado em implantes médicos. Totalmente seguro para contato prolongado com a pele, ideal para fisioterapia.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">Vantagens do Inox 316</h2>
-            <p class="section-subtitle">Entenda por que o Inox 316 é superior ao Inox 304 para ambientes aquáticos</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 12h18l-3-3m0 6l3-3"/>
-                            <path d="M3 5h18"/>
-                            <path d="M3 19h18"/>
-                        </svg>
+        <!-- Comparativo de Aços 304 vs 316 -->
+        <div class="container specifications" id="comparativo-acos">
+        <h2 class="section-title blue">Aço Inox 304 vs. 316: Qual a Diferença</h2>
+        <div class="benefits-grid">
+            <!-- Aço 304 -->
+            <div class="benefit-item">
+            <div class="benefit-icon">304</div>
+            <div class="benefit-content">
+                <h4>Aço Inox 304</h4>
+                <div class="prop-item">
+                <span class="material-icons-outlined">device_thermostat</span>
+                <p><strong>Composição:</strong> 18% Cr + 8% Ni</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">opacity</span>
+                <p><strong>Resistência:</strong> Boa em ambientes internos / água moderada</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">shield</span>
+                <p><strong>Durabilidade:</strong> Alta, pode pite em água muito clorada</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">attach_money</span>
+                <p><strong>Custo:</strong> Mais econômico que o 316</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">pool</span>
+                <p><strong>Uso:</strong> Piscinas cobertas / baixa salinidade</p>
+                </div>
+            </div>
+            </div>
+            <!-- Aço 316 -->
+            <div class="benefit-item">
+            <div class="benefit-icon">316</div>
+            <div class="benefit-content">
+                <h4>Aço Inox 316</h4>
+                <div class="prop-item">
+                <span class="material-icons-outlined">device_thermostat</span>
+                <p><strong>Composição:</strong> 16% Cr + 10% Ni + 2% Mo</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">opacity</span>
+                <p><strong>Resistência:</strong> Excelente contra cloretos / ambiente marítimo</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">shield</span>
+                <p><strong>Durabilidade:</strong> Superior em contato contínuo com cloro</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">attach_money</span>
+                <p><strong>Custo:</strong> Mais elevado (molibdênio)</p>
+                </div>
+                <div class="prop-item">
+                <span class="material-icons-outlined">pool</span>
+                <p><strong>Uso:</strong> Piscinas externas / públicas / litoral</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="cta-duvidas">
+            <a href="https://api.whatsapp.com/send/?phone=5516982227333&amp;text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+Escada+Paris+Inox+316&amp;type=phone_number&amp;app_absent=0" class="btn-whatsapp" target="_blank" rel="noopener">
+                <svg class="wpp-first" fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.271 13.21c.578.185 1.078.416 1.543.7l-.031-.018c.529.235.986.51 1.403.833l-.015-.011c.02.061.032.13.032.203 0 .011 0 .021-.001.032v-.001c-.015.429-.11.832-.271 1.199l.008-.021c-.231.463-.616.82-1.087 1.01l-.014.005c-.459.243-1.001.393-1.576.411h-.006c-1.1-.146-2.094-.484-2.988-.982l.043.022c-1.022-.468-1.895-1.083-2.636-1.829l-.001-.001c-.824-.857-1.579-1.795-2.248-2.794l-.047-.074c-.636-.829-1.041-1.866-1.1-2.995l-.001-.013v-.124c.032-.975.468-1.843 1.144-2.447l.003-.003c.207-.206.491-.335.805-.341h.001c.101.003.198.011.292.025l-.013-.002c.087.013.188.021.292.023h.003c.019-.002.04-.003.062-.003.13 0 .251.039.352.105l-.002-.001c.107.118.189.261.238.418l.002.008q.124.31.512 1.364c.135.314.267.701.373 1.099l.014.063c-.076.361-.268.668-.533.889l-.003.002q-.535.566-.535.72c.004.088.034.168.081.234l-.001-.001c.405.829.936 1.533 1.576 2.119l.005.005c.675.609 1.446 1.132 2.282 1.54l.059.026c.097.063.213.103.339.109h.002q.233 0 .838-.752t.804-.752zm-3.147 8.216h.022c1.357 0 2.647-.285 3.814-.799l-.061.024c2.356-.994 4.193-2.831 5.163-5.124l.024-.063c.49-1.113.775-2.411.775-3.775s-.285-2.662-.799-3.837l.024.062c-.994-2.356-2.831-4.193-5.124-5.163l-.063-.024c-1.113-.49-2.411-.775-3.775-.775s-2.662.285-3.837.799l.062-.024c-2.356.994-4.193 2.831-5.163 5.124l-.024.063c-.49 1.117-.775 2.419-.775 3.787 0 2.141.698 4.12 1.879 5.72l-.019-.026-1.225 3.613 3.752-1.194c1.49 1.01 3.327 1.612 5.305 1.612h.047zm0-21.426h.033c1.628 0 3.176.342 4.575.959l-.073-.029c2.825 1.197 5.028 3.4 6.196 6.149l.029.076c.588 1.337.93 2.896.93 4.535s-.342 3.198-.959 4.609l.029-.074c-1.197 2.825-3.4 5.028-6.149 6.196l-.076.029c-1.327.588-2.875.93-4.503.93-.011 0-.023 0-.034 0h.002c-.016 0-.034 0-.053 0-2.059 0-3.992-.541-5.664-1.488l.057.03-6.465 2.078 2.109-6.279c-1.051-1.714-1.674-3.789-1.674-6.01 0-1.646.342-3.212.959-4.631l-.029.075c1.197-2.825 3.4-5.028 6.149-6.196l.076-.029c1.327-.588 2.875-.93 4.503-.93h.033-.002z"></path></g></svg>
+                Ainda com dúvidas? Fale com nossa equipe
+            </a>
+        </div>
+        </div>
+
+        <!-- Process Section
+        <section class="process" id="beneficios">
+            <div class="container">
+                <h2 class="section-title blue">Por que escolher a Escada Paris?</h2>
+                <p class="section-subtitle blue">Descubra os diferenciais que fazem da Escada Paris a escolha ideal para sua piscina</p>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-card-header">
+                            <div class="process-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h3>Inox 316 Superior</h3>
+                        </div>
+                        <div class="process-card-body">
+                            <p>Resistência excepcional à corrosão, ideal para regiões litorâneas e piscinas com salinizadores. Durabilidade incomparável que resiste ao tempo.</p>
+                        </div>
                     </div>
-                    <div class="benefit-content">
-                        <h4>Resistência à Maresia</h4>
-                        <p>Ideal para regiões litorâneas, onde a maresia acelera a corrosão de materiais convencionais. O Inox 316 mantém sua integridade por muito mais tempo.</p>
+                    
+                    <div class="process-card">
+                        <div class="process-card-header">
+                            <div class="process-icon weight">
+    <svg fill="#ffffff" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M491.29,477.068L457.585,245.81c-0.758-5.204-5.585-8.803-10.794-8.047c-5.203,0.758-8.805,5.59-8.047,10.793 l33.705,231.258c0.49,3.352-0.462,6.611-2.677,9.173c-2.216,2.563-5.303,3.974-8.692,3.974H117.773c-5.257,0-9.52,4.262-9.52,9.52 c0,5.257,4.262,9.52,9.52,9.52H461.08c8.872,0,17.289-3.849,23.092-10.559C489.975,494.729,492.57,485.846,491.29,477.068z"></path> </g> </g> <g> <g> <path d="M451.41,203.439l-8.549-58.662c-2.172-14.894-15.158-26.126-30.21-26.126h-28.836C378.929,52.405,323.471,0,256,0 S133.071,52.405,128.185,118.65H99.349c-15.051,0-28.039,11.232-30.209,26.126L20.71,477.068 c-1.279,8.78,1.315,17.663,7.118,24.373C33.631,508.151,42.048,512,50.919,512h28.775c5.257,0,9.52-4.262,9.52-9.52 c0-5.257-4.262-9.52-9.52-9.52H50.919c-3.388,0-6.475-1.411-8.691-3.974c-2.216-2.563-3.168-5.82-2.68-9.173l48.43-332.291 c0.817-5.605,5.706-9.833,11.37-9.833h313.302c5.665,0,10.552,4.228,11.369,9.833l8.549,58.662 c0.759,5.204,5.59,8.811,10.794,8.047C448.566,213.474,452.168,208.641,451.41,203.439z M147.31,118.65 c4.842-55.731,51.725-99.61,108.69-99.61s103.846,43.879,108.688,99.61H147.31z"></path> </g> </g> <g> <g> <path d="M243.381,367.181l-6.148-21.518c-4.078-14.276-14.802-25.934-28.689-31.188l-3.126-1.183 c13.491-9.383,23.247-23.662,26.806-40.116l2.23-10.313c1.111-5.138-2.154-10.205-7.293-11.317 c-5.136-1.111-10.205,2.153-11.317,7.293l-2.23,10.313c-2.88,13.319-11.481,24.62-23.205,31.067v-39.368 c0-5.257-4.262-9.52-9.52-9.52c-5.257,0-9.52,4.262-9.52,9.52v108.946c0,5.257,4.262,9.52,9.52,9.52c5.257,0,9.52-4.262,9.52-9.52 V327.97l11.397,4.312c8.286,3.135,14.686,10.092,17.12,18.612l6.148,21.52c1.194,4.181,5.006,6.906,9.149,6.906 c0.866,0,1.747-0.119,2.62-0.369C241.897,377.506,244.825,372.237,243.381,367.181z"></path> </g> </g> <g> <g> <path d="M331.11,313.748h-28.371c-5.259,0-9.52,4.262-9.52,9.52c0,5.257,4.261,9.52,9.52,9.52h18.852v4.666 c0,12.585-10.238,22.823-22.823,22.823c-12.584,0-22.822-10.238-22.822-22.823v-44.259c0-12.584,10.238-22.823,22.823-22.823 c12.584,0,22.822,10.238,22.822,22.823c0,5.257,4.261,9.52,9.52,9.52c5.259,0,9.52-4.262,9.52-9.52 c0-23.083-18.78-41.863-41.863-41.863s-41.861,18.779-41.861,41.863v44.259c0,23.083,18.779,41.863,41.863,41.863 s41.861-18.779,41.861-41.863v-14.186C340.63,318.01,336.369,313.748,331.11,313.748z"></path> </g> </g> </g></svg>                        </div>
+                            <h3>Capacidade 450kg</h3>
+                        </div>
+                        <div class="process-card-body">
+                            <p>Estrutura robusta que suporta até 450kg, oferecendo segurança total para todos os usuários, incluindo pessoas obesas e uso intenso.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-card-header">
+                            <div class="process-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                            </div>
+                            <h3>Instalação Fácil</h3>
+                        </div>
+                        <div class="process-card-body">
+                            <p>Não requer furos no fundo da piscina. Compatível com piscinas de vinil, fibra e alvenaria. Instalação rápida e segura.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-card-header">
+                            <div class="process-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h3>Acessibilidade Total</h3>
+                        </div>
+                        <div class="process-card-body">
+                            <p>Degraus largos (15x56cm) ideais para idosos, fisioterapia e pessoas com mobilidade reduzida. Conforto e segurança garantidos.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+        </section> 
+        -->
+
+        <!-- Feedback -->
+        <section class="feedback">
+            <div class="container" id="feedback-clientes">
+                <h2 class="section-title white">O que dizem nossos clientes</h2>
+                <p class="section-subtitle white">
+                    Veja como a Escada Paris transformou a experiência de acesso à piscina
+                </p>
+
+                <div class="feedback-carousel-wrapper">
+                <div class="feedback-carousel">
+                    <!-- Depoimento 1 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        João Silva
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Instalação rápida e intuitiva. Agora toda a família aproveita a piscina com muito mais segurança e estilo!”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 2 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Maria Oliveira
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “O acabamento é impecável e o inox 316 realmente faz diferença – nenhum sinal de ferrugem após seis meses de uso!”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 3 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Carlos Santos
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Perfeita para o meu condomínio! Os degraus largos e antiderrapantes passam total segurança aos moradores.”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 4 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Ana Pereira
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Utilizo em clínica de fisioterapia e estou impressionada com a biocompatibilidade e facilidade de limpeza!”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 5 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Ricardo Almeida
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Testei várias escadas, mas nenhuma combina elegância e resistência como a Paris. Recomendo sem dúvidas!”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 6 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Fernanda Costa
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Ótima relação custo-benefício! A manutenção é mínima e o inox 316 mantém o visual moderno por anos.”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 7 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Bruno Rocha
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “A escada é robusta e não balança, mesmo com várias pessoas usando ao mesmo tempo. Perfeita para festas na piscina!”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 8 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Juliana Martins
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Adorei o design escovado — além de resistente, deixa minha área de lazer com um visual super contemporâneo.”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 9 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Eduardo Lima
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Excelente atendimento e suporte técnico. Tive total acompanhamento desde o pedido até a instalação.”
+                    </p>
+                    </div>
+
+                    <!-- Depoimento 10 -->
+                    <div class="feedback-item">
+                    <div class="feedback-header">
+                        <svg class="feedback-avatar" width="48" height="48" viewBox="0 0 24 24" fill="#01265A" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.5 1.6-9.5 4.9V22h19v-2.9c0-3.3-6.3-4.9-9.5-4.9z"/>
+                        </svg>
+                        <div class="feedback-name">
+                        Patrícia Sousa
+                        <div class="feedback-stars">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                        </div>
+                        </div>
+                    </div>
+                    <p class="feedback-text">
+                        “Super recomendo! A Escada Paris uniu funcionalidade e beleza, e recebeu muitos elogios dos meus convidados.”
+                    </p>
+                    </div>
+                </div>
+
+                <!-- Controles do carrossel -->
+                <div class="carousel-controls">
+                <button class="carousel-btn prev" aria-label="Depoimento anterior">‹</button>
+                <button class="carousel-btn next" aria-label="Próximo depoimento">›</button>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery" id="galeria">
+            <div class="container">
+                <h2 class="section-title blue">Veja a Escada Paris em Ação</h2>
+                <p class="section-subtitle blue">Qualidade e elegância que você pode ver e sentir</p>
                 
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v6m0 6v6"/>
-                            <path d="M21 12h-6m-6 0H3"/>
-                        </svg>
+                <div class="carousel" id="carousel">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- ITENS ORIGINAIS -->
+                    <div class="carousel-item">
+                    <img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/cascatasecia/media/uploads/produtos/foto/buuqzpbw/escada-piscina-idoso-obeso.jpg"
+                        alt="Escada Paris Inox 316 - Degraus detalhados com acabamento impecável">
                     </div>
-                    <div class="benefit-content">
-                        <h4>Resistência Química</h4>
-                        <p>Perfeito para piscinas com tratamento por salinizadores e produtos químicos agressivos. Não sofre deterioração com cloro e outros agentes.</p>
+                    <div class="carousel-item">
+                    <img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/cascatasecia/media/uploads/produtos/foto/hoxgbgfx/escada-inox-piscina-acessibilidade.jpg"
+                        alt="Escada Paris Inox 316 - Instalação em piscina residencial">
+                    </div>
+                    <!-- OS MESMOS ITENS DUPLICADOS PARA LOOP -->
+                    <div class="carousel-item">
+                    <img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/cascatasecia/media/uploads/produtos/foto/buuqzpbw/escada-piscina-idoso-obeso.jpg"
+                        alt="Escada Paris Inox 316 - Degraus detalhados com acabamento impecável">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/cascatasecia/media/uploads/produtos/foto/hoxgbgfx/escada-inox-piscina-acessibilidade.jpg"
+                        alt="Escada Paris Inox 316 - Instalação em piscina residencial">
                     </div>
                 </div>
+                </div>
+
+                <div class="videos-container">
+                <div class="video-wrapper">
+                    <!-- Primeiro vídeo -->
+                    <iframe 
+                    src="https://www.youtube.com/embed/z37q4d2pORM" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="video-wrapper">
+                    <!-- Segundo vídeo (link vazio para você preencher) -->
+                    <iframe 
+                    src="https://www.youtube.com/embed/moZS79cueGc?si=uX6jt2F_HBdVbXBE" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                    </iframe>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" id="contato">
+            <div class="container">
+                <h2>Transforme Sua Piscina Hoje Mesmo!</h2>
+                <p>Não perca a oportunidade de ter a melhor escada do mercado. Segurança, durabilidade e elegância em um só produto.</p>
                 
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26"/>
-                        </svg>
-                    </div>
-                    <div class="benefit-content">
-                        <h4>Durabilidade Superior</h4>
-                        <p>Investimento que se paga ao longo do tempo. Menor necessidade de manutenção e substituição, garantindo economia a longo prazo.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                        </svg>
-                    </div>
-                    <div class="benefit-content">
-                        <h4>Segurança Médica</h4>
-                        <p>Material biocompatível, usado em implantes médicos. Totalmente seguro para contato prolongado com a pele, ideal para fisioterapia.</p>
-                    </div>
+                <div class="cta-buttons">
+                    <a href="tel:+551637610352" class="btn-cta btn-primary">
+                        Ligar Agora: (16) 3761-0352
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=5516982227333&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+Escada+Paris+Inox+316&type=phone_number&app_absent=0"class="btn-whatsapp" target="_blank" rel="noopener">
+                        <svg class="wpp-first" fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.271 13.21c.578.185 1.078.416 1.543.7l-.031-.018c.529.235.986.51 1.403.833l-.015-.011c.02.061.032.13.032.203 0 .011 0 .021-.001.032v-.001c-.015.429-.11.832-.271 1.199l.008-.021c-.231.463-.616.82-1.087 1.01l-.014.005c-.459.243-1.001.393-1.576.411h-.006c-1.1-.146-2.094-.484-2.988-.982l.043.022c-1.022-.468-1.895-1.083-2.636-1.829l-.001-.001c-.824-.857-1.579-1.795-2.248-2.794l-.047-.074c-.636-.829-1.041-1.866-1.1-2.995l-.001-.013v-.124c.032-.975.468-1.843 1.144-2.447l.003-.003c.207-.206.491-.335.805-.341h.001c.101.003.198.011.292.025l-.013-.002c.087.013.188.021.292.023h.003c.019-.002.04-.003.062-.003.13 0 .251.039.352.105l-.002-.001c.107.118.189.261.238.418l.002.008q.124.31.512 1.364c.135.314.267.701.373 1.099l.014.063c-.076.361-.268.668-.533.889l-.003.002q-.535.566-.535.72c.004.088.034.168.081.234l-.001-.001c.405.829.936 1.533 1.576 2.119l.005.005c.675.609 1.446 1.132 2.282 1.54l.059.026c.097.063.213.103.339.109h.002q.233 0 .838-.752t.804-.752zm-3.147 8.216h.022c1.357 0 2.647-.285 3.814-.799l-.061.024c2.356-.994 4.193-2.831 5.163-5.124l.024-.063c.49-1.113.775-2.411.775-3.775s-.285-2.662-.799-3.837l.024.062c-.994-2.356-2.831-4.193-5.124-5.163l-.063-.024c-1.113-.49-2.411-.775-3.775-.775s-2.662.285-3.837.799l.062-.024c-2.356.994-4.193 2.831-5.163 5.124l-.024.063c-.49 1.117-.775 2.419-.775 3.787 0 2.141.698 4.12 1.879 5.72l-.019-.026-1.225 3.613 3.752-1.194c1.49 1.01 3.327 1.612 5.305 1.612h.047zm0-21.426h.033c1.628 0 3.176.342 4.575.959l-.073-.029c2.825 1.197 5.028 3.4 6.196 6.149l.029.076c.588 1.337.93 2.896.93 4.535s-.342 3.198-.959 4.609l.029-.074c-1.197 2.825-3.4 5.028-6.149 6.196l-.076.029c-1.327.588-2.875.93-4.503.93-.011 0-.023 0-.034 0h.002c-.016 0-.034 0-.053 0-2.059 0-3.992-.541-5.664-1.488l.057.03-6.465 2.078 2.109-6.279c-1.051-1.714-1.674-3.789-1.674-6.01 0-1.646.342-3.212.959-4.631l-.029.075c1.197-2.825 3.4-5.028 6.149-6.196l.076-.029c1.327-.588 2.875-.93 4.503-.93h.033-.002z"></path></g></svg>
+                        Fale no WhatsApp
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Specifications -->
-    <section class="specifications" id="especificacoes">
-        <div class="container">
-            <h2 class="section-title white">Especificações Técnicas</h2>
-            <p class="section-subtitle white">Todos os detalhes que fazem a diferença</p>
-            
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <div class="spec-value">450kg</div>
-                    <div class="spec-label">Capacidade Máxima</div>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Cascatas & Cia</h3>
+                        <p>Especialistas em acessórios para piscinas de alta qualidade há mais de 20 anos no mercado.</p>
+                        <p>Sua confiança merece a garantia de um produto genuíno e duradouro!</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contato</h3>
+                        <a href="tel:+551637610352">(16) 3761-0352</a>
+                        <p>Atendimento especializado</p>
+                        <p>Segunda a sexta: 8h às 18h</p>
+                        <p>Sábado: 8h às 12h</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Produto</h3>
+                        <p>Escada Paris Inox 316</p>
+                        <p>Código: 34-316-1</p>
+                        <p>Disponibilidade: 20 dias</p>
+                        <p>Garantia: 1 ano</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Informações</h3>
+                        <p>Entrega para todo Brasil</p>
+                        <p>Instalação disponível</p>
+                        <p>Suporte técnico</p>
+                        <p>Orçamento gratuito</p>
+                    </div>
                 </div>
-                <div class="spec-item">
-                    <div class="spec-value">15x56cm</div>
-                    <div class="spec-label">Medida dos Degraus</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-value">5-11</div>
-                    <div class="spec-label">Opções de Degraus</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-value">1-2m</div>
-                    <div class="spec-label">Profundidades</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-value">316</div>
-                    <div class="spec-label">Aço Inox AISI</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-value">1 Ano</div>
-                    <div class="spec-label">Garantia</div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Cascatas & Cia. Todos os direitos reservados. | Escada Paris Inox 316 - Segurança e Acessibilidade para Piscinas</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </footer>
+    </div>
 
-    <!-- Gallery -->
-    <section class="gallery" id="galeria">
-        <div class="container">
-            <h2 class="section-title">Veja a Escada Paris em Ação</h2>
-            <p class="section-subtitle">Qualidade e elegância que você pode ver e sentir</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/cascatasecia/media/uploads/produtos/foto/buuqzpbw/escada-piscina-idoso-obeso.jpg" alt="Escada Paris Inox 316 - Degraus detalhados com acabamento impecável">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/cascatasecia/media/uploads/produtos/foto/hoxgbgfx/escada-inox-piscina-acessibilidade.jpg" alt="Escada Paris Inox 316 - Instalação em piscina residencial">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta" id="contato">
-        <div class="container">
-            <h2>Transforme Sua Piscina Hoje Mesmo!</h2>
-            <p>Não perca a oportunidade de ter a melhor escada do mercado. Segurança, durabilidade e elegância em um só produto.</p>
-            
-            <div class="cta-buttons">
-                <a href="tel:+551637610352" class="btn-cta btn-primary">
-                    Ligar Agora: (16) 3761-0352
-                </a>
-                <a href="https://wa.me/551637610352?text=Olá! Gostaria de saber mais sobre a Escada Paris Inox 316" class="btn-cta btn-secondary">
-                    <svg fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.271 13.21c.578.185 1.078.416 1.543.7l-.031-.018c.529.235.986.51 1.403.833l-.015-.011c.02.061.032.13.032.203 0 .011 0 .021-.001.032v-.001c-.015.429-.11.832-.271 1.199l.008-.021c-.231.463-.616.82-1.087 1.01l-.014.005c-.459.243-1.001.393-1.576.411h-.006c-1.1-.146-2.094-.484-2.988-.982l.043.022c-1.022-.468-1.895-1.083-2.636-1.829l-.001-.001c-.824-.857-1.579-1.795-2.248-2.794l-.047-.074c-.636-.829-1.041-1.866-1.1-2.995l-.001-.013v-.124c.032-.975.468-1.843 1.144-2.447l.003-.003c.207-.206.491-.335.805-.341h.001c.101.003.198.011.292.025l-.013-.002c.087.013.188.021.292.023h.003c.019-.002.04-.003.062-.003.13 0 .251.039.352.105l-.002-.001c.107.118.189.261.238.418l.002.008q.124.31.512 1.364c.135.314.267.701.373 1.099l.014.063c-.076.361-.268.668-.533.889l-.003.002q-.535.566-.535.72c.004.088.034.168.081.234l-.001-.001c.405.829.936 1.533 1.576 2.119l.005.005c.675.609 1.446 1.132 2.282 1.54l.059.026c.097.063.213.103.339.109h.002q.233 0 .838-.752t.804-.752zm-3.147 8.216h.022c1.357 0 2.647-.285 3.814-.799l-.061.024c2.356-.994 4.193-2.831 5.163-5.124l.024-.063c.49-1.113.775-2.411.775-3.775s-.285-2.662-.799-3.837l.024.062c-.994-2.356-2.831-4.193-5.124-5.163l-.063-.024c-1.113-.49-2.411-.775-3.775-.775s-2.662.285-3.837.799l.062-.024c-2.356.994-4.193 2.831-5.163 5.124l-.024.063c-.49 1.117-.775 2.419-.775 3.787 0 2.141.698 4.12 1.879 5.72l-.019-.026-1.225 3.613 3.752-1.194c1.49 1.01 3.327 1.612 5.305 1.612h.047zm0-21.426h.033c1.628 0 3.176.342 4.575.959l-.073-.029c2.825 1.197 5.028 3.4 6.196 6.149l.029.076c.588 1.337.93 2.896.93 4.535s-.342 3.198-.959 4.609l.029-.074c-1.197 2.825-3.4 5.028-6.149 6.196l-.076.029c-1.327.588-2.875.93-4.503.93-.011 0-.023 0-.034 0h.002c-.016 0-.034 0-.053 0-2.059 0-3.992-.541-5.664-1.488l.057.03-6.465 2.078 2.109-6.279c-1.051-1.714-1.674-3.789-1.674-6.01 0-1.646.342-3.212.959-4.631l-.029.075c1.197-2.825 3.4-5.028 6.149-6.196l.076-.029c1.327-.588 2.875-.93 4.503-.93h.033-.002z"></path></g></svg>
-                    WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Cascatas & Cia</h3>
-                    <p>Especialistas em acessórios para piscinas de alta qualidade há mais de 20 anos no mercado.</p>
-                    <p>Sua confiança merece a garantia de um produto genuíno e duradouro!</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <a href="tel:+551637610352">(16) 3761-0352</a>
-                    <p>Atendimento especializado</p>
-                    <p>Segunda a sexta: 8h às 18h</p>
-                    <p>Sábado: 8h às 12h</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Produto</h3>
-                    <p>Escada Paris Inox 316</p>
-                    <p>Código: 34-316-1</p>
-                    <p>Disponibilidade: 20 dias</p>
-                    <p>Garantia: 1 ano</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Informações</h3>
-                    <p>Entrega para todo Brasil</p>
-                    <p>Instalação disponível</p>
-                    <p>Suporte técnico</p>
-                    <p>Orçamento gratuito</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Cascatas & Cia. Todos os direitos reservados. | Escada Paris Inox 316 - Segurança e Acessibilidade para Piscinas</p>
-            </div>
-        </div>
-    </footer>
-
+    <!-- Inclua este bloco no final do <body>, após o seu HTML e após importar o Smooth Scrollbar -->
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
+    
     <script>
-        // Form handling
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Create WhatsApp message
-            const message = `Olá! Gostaria de solicitar um orçamento para a Escada Paris Inox 316:
+        document.addEventListener('DOMContentLoaded', () => {
+        const wrapper = document.querySelector('.feedback-carousel-wrapper');
+        const carousel = wrapper.querySelector('.feedback-carousel');
+        const prevBtn = wrapper.querySelector('.carousel-btn.prev');
+        const nextBtn = wrapper.querySelector('.carousel-btn.next');
+        const items = Array.from(carousel.children);
+        let index = 0;
 
-*Dados pessoais:*
-Nome: ${data.nome}
-E-mail: ${data.email}
-WhatsApp: ${data.telefone}
-Cidade: ${data.cidade}
+        function updateCarousel() {
+            // lê o gap em px
+            const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+            // largura de um item
+            const itemWidth = items[0].getBoundingClientRect().width;
+            // quantos cabem na view
+            const visibleCount = Math.floor(
+            wrapper.getBoundingClientRect().width / (itemWidth + gap)
+            );
+            // índice máximo que faz sentido (última posição completa)
+            const maxIndex = Math.max(0, items.length - visibleCount);
+            // garante que index esteja no intervalo válido
+            index = Math.max(0, Math.min(index, maxIndex));
 
-*Especificações:*
-Profundidade da piscina: ${data.profundidade}
+            // deslocamento em px
+            const offset = index * (itemWidth + gap);
+            carousel.style.transform = `translateX(-${offset}px)`;
 
-Aguardo retorno com o orçamento. Obrigado!`;
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === maxIndex;
+        }
 
-            const whatsappUrl = `https://wa.me/551637610352?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+        prevBtn.addEventListener('click', () => {
+            index--;
+            updateCarousel();
         });
 
-        // Smooth scrolling for navigation links
+        nextBtn.addEventListener('click', () => {
+            index++;
+            updateCarousel();
+        });
+
+        // recalcula ao redimensionar a janela
+        window.addEventListener('resize', updateCarousel);
+
+        updateCarousel();
+
+        // 1) Inicializa o Smooth Scrollbar
+        const scrollbar = Scrollbar.init(
+            document.querySelector('#scroll-container'),
+            {
+            damping: 0.08,
+            renderByPixels: true,
+            continuousScrolling: true
+            }
+        );
+
+        // 2) Outras inicializações
+        initSmoothScroll(scrollbar);
+        initFadeInObserver();
+        initInfiniteCarousel({
+            carouselSelector: '#carousel',
+            trackSelector: '#carousel-track',
+            speed: 0.5
+        });
+        initTimelineProgress(scrollbar);
+        });
+
+        /** 1) Smooth scroll de âncoras */
+        function initSmoothScroll(scrollbar) {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+            anchor.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (!target) return;
+            const offsetY = target.getBoundingClientRect().top + scrollbar.scrollTop;
+            scrollbar.scrollTo(0, offsetY, 600);
             });
         });
+        }
 
-        // Add fade-in animation on scroll
-        const observerOptions = {
+        /** 2) Fade-in on scroll via IntersectionObserver */
+        function initFadeInObserver() {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                obs.unobserve(entry.target);
+            }
+            });
+        }, {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
         });
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+        }
+
+        /** 3) Carousel infinito */
+        function initInfiniteCarousel({ carouselSelector, trackSelector, speed }) {
+        const carousel = document.querySelector(carouselSelector);
+        const track    = document.querySelector(trackSelector);
+        if (!carousel || !track) return;
+
+        const originals = Array.from(track.children).filter(c => !c.dataset.clone);
+        originals.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.dataset.clone = 'true';
+            track.appendChild(clone);
+        });
+
+        const totalWidth = originals.reduce((sum, item) => {
+            const style = getComputedStyle(item);
+            return sum + item.offsetWidth + parseFloat(style.marginRight);
+        }, 0);
+
+        let rafId;
+        function step() {
+            carousel.scrollLeft += speed;
+            if (carousel.scrollLeft >= totalWidth) {
+            carousel.scrollLeft -= totalWidth;
+            }
+            rafId = requestAnimationFrame(step);
+        }
+        function start() {
+            cancelAnimationFrame(rafId);
+            step();
+        }
+        carousel.addEventListener('mouseenter', () => cancelAnimationFrame(rafId));
+        carousel.addEventListener('mouseleave', start);
+        start();
+        }
+
+        /** 4) Timeline progress que acompanha o meio da tela */
+        function initTimelineProgress(scrollbar) {
+        const timeline = document.querySelector('#timeline');
+        const progress = document.querySelector('#line-progress');
+        const icons    = timeline?.querySelectorAll('.icon') || [];
+        if (!timeline || !progress) return;
+
+        const timelineTop    = timeline.offsetTop;
+        const timelineHeight = timeline.offsetHeight;
+
+        function update(yOffset) {
+            // posição do meio da viewport em coordenada de conteúdo
+            const screenMid = yOffset + window.innerHeight / 1.2;
+
+            // calcula % de progresso dentro da timeline
+            let pct = ((screenMid - timelineTop) / timelineHeight) * 100;
+            pct = Math.max(0, Math.min(pct, 100));
+            progress.style.height = pct + '%';
+
+            // ativa ícones cujo meio já passou do meio da tela
+            icons.forEach(icon => {
+            const iconMid = icon.offsetTop + icon.offsetHeight / 2;
+            if (screenMid >= iconMid) {
+                icon.classList.add('active');
+            }
+            });
+        }
+
+        // vincula ao evento de scroll customizado
+        scrollbar.addListener(({ offset }) => {
+            update(offset.y);
+        });
+
+        // roda uma vez no load
+        update(scrollbar.scrollTop);
+        }
     </script>
+
+
 </body>
 </html>
 
