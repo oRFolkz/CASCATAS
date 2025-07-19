@@ -903,6 +903,21 @@
             fill: #fff;
         }
 
+        .madeBy {
+            background-color: #1c1c1c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .madeBy p {
+            color: white;
+            font-family: inherit;
+        }
+        .madeBy img {
+            margin-top: 10px;
+            max-height: 30px;
+        }
 
         @media (max-width: 768px) {
             .benefits-grid {
@@ -1721,6 +1736,12 @@
             </div>
         </footer>
 
+        <div class="madeBy">
+            <p>Feito por:</p>
+            <a href="https://nexgenius.com.br">
+                <img src="https://nexgenius.com.br/wp-content/uploads/2021/03/Nexgenius-350px.png" alt="Nexgenius">
+            </a>
+        </div>
     </div>
 
     <!-- Buttons -->
@@ -1742,167 +1763,6 @@
         <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.59 5.58L20 12l-8-8-8 8z"/>
         </svg>
     </a>
-
-<!--     <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const wrapper = document.querySelector('.feedback-carousel-wrapper');
-        const carousel = wrapper.querySelector('.feedback-carousel');
-        const prevBtn = wrapper.querySelector('.carousel-btn.prev');
-        const nextBtn = wrapper.querySelector('.carousel-btn.next');
-        const items = Array.from(carousel.children);
-        let index = 0;
-
-        function updateCarousel() {
-            // lê o gap em px
-            const gap = parseInt(getComputedStyle(carousel).gap) || 0;
-            // largura de um item
-            const itemWidth = items[0].getBoundingClientRect().width;
-            // quantos cabem na view
-            const visibleCount = Math.floor(
-            wrapper.getBoundingClientRect().width / (itemWidth + gap)
-            );
-            // índice máximo que faz sentido (última posição completa)
-            const maxIndex = Math.max(0, items.length - visibleCount);
-            // garante que index esteja no intervalo válido
-            index = Math.max(0, Math.min(index, maxIndex));
-
-            // deslocamento em px
-            const offset = index * (itemWidth + gap);
-            carousel.style.transform = `translateX(-${offset}px)`;
-
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === maxIndex;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            index--;
-            updateCarousel();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            index++;
-            updateCarousel();
-        });
-
-        // recalcula ao redimensionar a janela
-        window.addEventListener('resize', updateCarousel);
-
-        updateCarousel();
-
-        // 1) Inicializa o Smooth Scrollbar
-        const scrollbar = Scrollbar.init(
-            document.querySelector('#scroll-container'),
-            {
-            damping: 0.08,
-            renderByPixels: true,
-            continuousScrolling: true
-            }
-        );
-
-        // 2) Outras inicializações
-        initSmoothScroll(scrollbar);
-        initFadeInObserver();
-        initInfiniteCarousel({
-            carouselSelector: '#carousel',
-            trackSelector: '#carousel-track',
-            speed: 0.5
-        });
-        initTimelineProgress(scrollbar);
-        });
-
-        /** 1) Smooth scroll de âncoras */
-        function initSmoothScroll(scrollbar) {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (!target) return;
-            const offsetY = target.getBoundingClientRect().top + scrollbar.scrollTop;
-            scrollbar.scrollTo(0, offsetY, 600);
-            });
-        });
-        }
-
-        /** 2) Fade-in on scroll via IntersectionObserver */
-        function initFadeInObserver() {
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                obs.unobserve(entry.target);
-            }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-        }
-
-        /** 3) Carousel infinito */
-        function initInfiniteCarousel({ carouselSelector, trackSelector, speed }) {
-        const carousel = document.querySelector(carouselSelector);
-        const track    = document.querySelector(trackSelector);
-        if (!carousel || !track) return;
-
-        const originals = Array.from(track.children).filter(c => !c.dataset.clone);
-        originals.forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.dataset.clone = 'true';
-            track.appendChild(clone);
-        });
-
-        const totalWidth = originals.reduce((sum, item) => {
-            const style = getComputedStyle(item);
-            return sum + item.offsetWidth + parseFloat(style.marginRight);
-        }, 0);
-
-        let rafId;
-        function step() {
-            carousel.scrollLeft += speed;
-            if (carousel.scrollLeft >= totalWidth) {
-            carousel.scrollLeft -= totalWidth;
-            }
-            rafId = requestAnimationFrame(step);
-        }
-        function start() {
-            cancelAnimationFrame(rafId);
-            step();
-        }
-        carousel.addEventListener('mouseenter', () => cancelAnimationFrame(rafId));
-        carousel.addEventListener('mouseleave', start);
-        start();
-        }
-
-        /** 4) Timeline progress que acompanha o meio da tela */
-        function initTimelineProgress(scrollbar) {
-        const timeline = document.querySelector('#timeline');
-        const progress = document.querySelector('#line-progress');
-        const icons    = timeline?.querySelectorAll('.icon') || [];
-        if (!timeline || !progress) return;
-
-        const timelineTop    = timeline.offsetTop;
-        const timelineHeight = timeline.offsetHeight;
-
-        function update(yOffset) {
-            // posição do meio da viewport em coordenada de conteúdo
-            const screenMid = yOffset + window.innerHeight / 1.2;
-
-            // calcula % de progresso dentro da timeline
-            let pct = ((screenMid - timelineTop) / timelineHeight) * 100;
-            pct = Math.max(0, Math.min(pct, 100));
-            progress.style.height = pct + '%';
-
-            // ativa ícones cujo meio já passou do meio da tela
-            icons.forEach(icon => {
-            const iconMid = icon.offsetTop + icon.offsetHeight / 2;
-            if (screenMid >= iconMid) {
-                icon.classList.add('active');
-            }
-            });
-    }}
-    </script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
     <script>
