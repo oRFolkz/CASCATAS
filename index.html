@@ -78,6 +78,10 @@
             scroll-behavior: smooth;
         }
 
+        .scrollbar-thumb {
+            background: #01265A !important;
+        }
+
         .white {
             color: white;
         } 
@@ -123,6 +127,11 @@
         @media (max-width: 1200px) {
             .container {
                 max-width: 95%;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
             }
         }
 
@@ -965,7 +974,11 @@
             }
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 425px) { 
+            .hero > * {
+                height: auto;
+            }
+
             .section-title {
                 line-height: 50px;
             }
@@ -1730,7 +1743,7 @@
         </svg>
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
+<!--     <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
         const wrapper = document.querySelector('.feedback-carousel-wrapper');
@@ -1889,7 +1902,158 @@
             }
             });
     }}
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // === Carrossel de depoimentos ===
+    const wrapper = document.querySelector('.feedback-carousel-wrapper');
+    const carousel = wrapper.querySelector('.feedback-carousel');
+    const prevBtn = wrapper.querySelector('.carousel-btn.prev');
+    const nextBtn = wrapper.querySelector('.carousel-btn.next');
+    const items = Array.from(carousel.children);
+    let index = 0;
+
+    function updateCarousel() {
+        const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+        const itemWidth = items[0].getBoundingClientRect().width;
+        const visibleCount = Math.floor(
+        wrapper.getBoundingClientRect().width / (itemWidth + gap)
+        );
+        const maxIndex = Math.max(0, items.length - visibleCount);
+        index = Math.max(0, Math.min(index, maxIndex));
+        const offset = index * (itemWidth + gap);
+        carousel.style.transform = `translateX(-${offset}px)`;
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === maxIndex;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        index--;
+        updateCarousel();
+    });
+    nextBtn.addEventListener('click', () => {
+        index++;
+        updateCarousel();
+    });
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
+
+    // === Smooth Scrollbar ===
+    const scrollbar = Scrollbar.init(
+        document.querySelector('#scroll-container'),
+        {
+        damping: 0.08,
+        renderByPixels: true,
+        continuousScrolling: true
+        }
+    );
+
+    // === Outras inits ===
+    initSmoothScroll(scrollbar);
+    initFadeInObserver();
+    initInfiniteCarousel({
+        carouselSelector: '#carousel',
+        trackSelector: '#carousel-track',
+        speed: 0.5
+    });
+    initTimelineProgress(scrollbar);
+    });
+
+    /** 1) Smooth scrolling de âncoras via Scrollbar API */
+    function initSmoothScroll(scrollbar) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (!target) return;
+        const offsetY = target.getBoundingClientRect().top + scrollbar.scrollTop;
+        scrollbar.scrollTo(0, offsetY, 600);
+        });
+    });
+    }
+
+    /** 2) Fade-in on scroll via IntersectionObserver */
+    function initFadeInObserver() {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            obs.unobserve(entry.target);
+        }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+    }
+
+    /** 3) Carousel infinito genérico */
+    function initInfiniteCarousel({ carouselSelector, trackSelector, speed }) {
+    const carousel = document.querySelector(carouselSelector);
+    const track = document.querySelector(trackSelector);
+    if (!carousel || !track) return;
+    const originals = Array.from(track.children).filter(c => !c.dataset.clone);
+    originals.forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.dataset.clone = 'true';
+        track.appendChild(clone);
+    });
+    const totalWidth = originals.reduce((sum, item) => {
+        const style = getComputedStyle(item);
+        return sum + item.offsetWidth + parseFloat(style.marginRight);
+    }, 0);
+
+    let rafId;
+    function step() {
+        carousel.scrollLeft += speed;
+        if (carousel.scrollLeft >= totalWidth) {
+        carousel.scrollLeft -= totalWidth;
+        }
+        rafId = requestAnimationFrame(step);
+    }
+    function start() {
+        cancelAnimationFrame(rafId);
+        step();
+    }
+    carousel.addEventListener('mouseenter', () => cancelAnimationFrame(rafId));
+    carousel.addEventListener('mouseleave', start);
+    start();
+    }
+
+    /** 4) Timeline progress acompanhando o MEIO da tela */
+    function initTimelineProgress(scrollbar) {
+    const timeline = document.querySelector('#timeline');
+    const progress = document.querySelector('#line-progress');
+    const icons = timeline ? timeline.querySelectorAll('.icon') : [];
+    if (!timeline || !progress) return;
+
+    const timelineTop = timeline.offsetTop;
+    const timelineHeight = timeline.offsetHeight;
+
+    function update(yOffset) {
+        const screenMid = yOffset + window.innerHeight / 2;
+        let pct = ((screenMid - timelineTop) / timelineHeight) * 100;
+        pct = Math.max(0, Math.min(pct, 100));
+        progress.style.height = pct + '%';
+        icons.forEach(icon => {
+        const iconMid = icon.offsetTop + icon.offsetHeight / 2;
+        if (screenMid >= iconMid) {
+            icon.classList.add('active');
+        }
+        });
+    }
+
+    scrollbar.addListener(({ offset }) => {
+        update(offset.y);
+    });
+    // primeira chamada
+    update(scrollbar.scrollTop);
+    }
     </script>
+
 
 </body>
 </html>
